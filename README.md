@@ -175,7 +175,7 @@ Install video driver, Xorg and utilities
 
 ~~~~bash
 $ yaourt -Syu
-$ yaourt xf86-video-intel xorg-server xorg-server-utils xorg-apps i3-wm i3blocks terminator thunar thunar-archive-plugin thunar-volman pulseaudio pasystray-gtk2-standalone playerctl xfce4-power-manager network-manager-applet gnome-keyring rofi dmenu dmenu-extended oh-my-zsh-git
+$ yaourt xf86-video-intel xorg-server xorg-server-utils xorg-apps i3-wm i3blocks terminator thunar thunar-archive-plugin thunar-volman pulseaudio pasystray-gtk2-standalone playerctl xfce4-power-manager network-manager-applet gnome-keyring rofi dmenu dmenu-extended oh-my-zsh-git tzupdate
 ~~~~
 
 Set keyboard layout
@@ -189,7 +189,7 @@ Themes and appearance
 
 ~~~~bash
 $ yaourt -Syu
-$ yaourt lxappearance arandr feh compton-git grub-customizer
+$ yaourt lxappearance arandr feh compton-git grub-customizer gtk-theme-arc
 ~~~~
 
 Utilities
@@ -208,5 +208,19 @@ $ yaourt firefox google-chrome flashplugin vlc spotify blockify transmission-gtk
 
 ~~~~bash
 $ yaourt -Syu
-$ yaourt sublime-text
+$ yaourt pinta
+~~~~
+
+### Coding
+
+~~~~bash
+$ yaourt -Syu
+$ yaourt sublime-text python-conda pyenv rbenv ruby-build
+~~~~
+
+### Optionals and applications being tested
+
+~~~~bash
+$ yaourt -Syu
+$ yaourt lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings accountsservice
 ~~~~
