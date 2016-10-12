@@ -67,7 +67,7 @@ Put closer mirrors on top of the list.
 ### Install base packages
 
 ~~~~bash
-# pacstrap /mnt base base-devel grub efibootmgr zsh zsh-completions iw wpa_supplicant dialog networkmanager
+# pacstrap /mnt base base-devel grub efibootmgr hfsprogs exfat-utils zsh zsh-completions iw wpa_supplicant dialog networkmanager alsi
 ~~~~
 
 ### Generate fstab file
@@ -167,16 +167,18 @@ Install `yaourt`:
 sudo pacman -Syu yaourt git wget curl
 ~~~~
 
-and comment out the above lines.
+and optionally comment out the above lines.
 
 ### Xorg, window manager and DE utilities
 
 Install video driver, Xorg and utilities
 
 ~~~~bash
-$ yaourt -Syu
-$ yaourt xf86-video-intel xorg-server xorg-server-utils xorg-apps i3-wm i3blocks terminator thunar thunar-archive-plugin thunar-volman pulseaudio pasystray-gtk2-standalone playerctl xfce4-power-manager network-manager-applet gnome-keyring rofi dmenu dmenu-extended oh-my-zsh-git tzupdate
+$ yaourt -Syu --aur
+# pacman -S xf86-video-intel xorg-server xorg-server-utils xorg-apps i3-wm terminator thunar thunar-archive-plugin thunar-volman libnotify dunst pulseaudio xfce4-power-manager network-manager-applet gnome-keyring rofi dmenu
 ~~~~
+
+Via `yaourt` install the following packages: `i3blocks tzupdate pasystray-gtk2-standalone playerctl dmenu-extended oh-my-zsh-git`.
 
 Set keyboard layout
 
@@ -185,42 +187,68 @@ $ localectl set-keymap --no-convert la-latin1
 $ localectl set-x11-keymap --no-convert latam pc105 deadtilde ctrl:swap_lalt_lctl
 ~~~~
 
-Themes and appearance
+#### Fonts and Infinality
+
+Edit `/etc/pacman.conf` and append the following lines:
 
 ~~~~bash
-$ yaourt -Syu
-$ yaourt lxappearance arandr feh compton-git grub-customizer gtk-theme-arc
+[infinality-bundle]
+Server = http://bohoomil.com/repo/$arch
+
+[infinality-bundle-fonts]
+Server = http://bohoomil.com/repo/fonts
 ~~~~
 
-Utilities
+Install infinality patches and fonts
 
 ~~~~bash
-$ yaourt -Syu
-$ yaourt bleachbit
+$ yaourt -Syu --aur
+# pacman -S freetype2-infinality-ultimate fontconfig-infinality-ultimate ibfonts-meta-extended
+~~~~
+
+#### Themes and appearance
+
+~~~~bash
+$ yaourt -Syu --aur
+# pacman -S lxappearance arandr feh gtk-theme-arc deepin-icon-theme
+~~~~
+
+Via `yaourt` install the following packages: `compton-git compton-conf grub-customizer `.
+
+Set themes using `lxappearance` and configure composition with `compton-conf`.
+
+#### Utilities
+
+~~~~bash
+$ yaourt -Syu --aur
+# pacman -S bleachbit
 ~~~~
 
 ### Applications
 
 ~~~~bash
-$ yaourt -Syu
-$ yaourt firefox google-chrome flashplugin vlc spotify blockify transmission-gtk
+$ yaourt -Syu --aur
+# pacman -S firefox google-chrome flashplugin vlc spotify transmission-gtk
 ~~~~
 
+Via `yaourt` install the following packages: `blockify`.
+
 ~~~~bash
-$ yaourt -Syu
-$ yaourt pinta
+$ yaourt -Syu --aur
+# pacman -S pinta
 ~~~~
 
 ### Coding
 
 ~~~~bash
-$ yaourt -Syu
-$ yaourt sublime-text python-conda pyenv rbenv ruby-build
+$ yaourt -Syu --aur
 ~~~~
+
+Via `yaourt` install the following packages: `sublime-text python-conda pyenv rbenv ruby-build`.
 
 ### Optionals and applications being tested
 
 ~~~~bash
-$ yaourt -Syu
-$ yaourt lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings accountsservice
+$ yaourt -Syu --aur
+# pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings accountsservice
 ~~~~
