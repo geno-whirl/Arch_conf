@@ -1,0 +1,8 @@
+rofi.font: "SFNS Display" 12
+rofi.lines: 5
+rofi.eh: 3
+#rofi.separator-style: none
+#rofi.line-padding: 0
+#rofi.line-margin: 0
+rofi.scroll-method: 0
+rofi.color-normal: #ffffff, #2f343f, #f3f4f5, #6495ED
